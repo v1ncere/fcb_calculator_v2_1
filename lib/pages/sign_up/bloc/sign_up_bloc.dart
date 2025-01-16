@@ -13,7 +13,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     required FirebaseAuthRepository authRepository,
     required FirebaseDatabaseRepository databaseRepository,
   })  : _authRepository = authRepository,
-        _databaseRepository = databaseRepository,
+  _databaseRepository = databaseRepository,
   super(const SignUpState()) {
     on<EmailChanged>(_onEmailChanged);
     on<PasswordChanged>(_onPasswordChanged);
@@ -64,6 +64,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     if (state.isValid) {
       emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
       try {
+        final now = DateTime.now();
         final phone = await initDeviceInfoPlugin();
         final auth = await _authRepository.signUpWithEmailAndPassword(
           email: state.email.value,
@@ -77,16 +78,16 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
               employeeId: state.employeeId.value.trim(),
               phoneId: phone,
               mobileNumber: int.parse(state.mobileNumber.value.replaceAll(RegExp(r'[\(\) +]'), '')),
-              expiry: DateTime.now()
+              expiry: now,
+              createdAt: now,
+              updatedAt: now
             )
           );
           _authRepository.verifyEmail();
           emit(state.copyWith(status: FormzSubmissionStatus.success));
         }
-      } on SignUpWithEmailAndPasswordFailure catch (e) {
-        emit(state.copyWith(status: FormzSubmissionStatus.failure, message: e.message));
       } catch (e) {
-        emit(state.copyWith(status: FormzSubmissionStatus.failure, message: e.toString()));
+        emit(state.copyWith(status: FormzSubmissionStatus.failure, message: "Error: ${e.toString().replaceAll("Exception: ", "")}"));
       }
     } else {
       emit(state.copyWith(

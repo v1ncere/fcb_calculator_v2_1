@@ -15,7 +15,16 @@ class TitleTexts extends StatelessWidget {
           Text(
             'FCB',
             style: TextStyle(
-              color: CustomColors.jewel,
+              color: CustomColor.jewel,
+              fontSize: 28,
+              fontWeight: FontWeight.bold
+            )
+          ),
+          const SizedBox(width: 5),
+          const Text(
+            'e',
+            style: TextStyle(
+              color: Colors.lightBlue,
               fontSize: 28,
               fontWeight: FontWeight.bold
             )
@@ -31,7 +40,7 @@ class TitleTexts extends StatelessWidget {
           Icon(
             Icons.calculate_rounded,
             size: 34,
-            color: CustomColors.jewel
+            color: CustomColor.jewel
           )
         ]
       )

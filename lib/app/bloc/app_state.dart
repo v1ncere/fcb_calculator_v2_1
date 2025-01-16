@@ -10,11 +10,11 @@ class AppState extends Equatable {
 
   AppState copyWith({
     AppStatus? status,
-    User? user,
+    User? user
   }) {
     return AppState(
       status: status ?? this.status,
-      user: user ?? this.user,
+      user: user ?? this.user
     );
   }
 
@@ -22,9 +22,4 @@ class AppState extends Equatable {
   List<Object?> get props => [status, user];
 }
 
-enum AppStatus {
-  signup,
-  forgotPassword,
-  unauthenticated,
-  authenticated
-}
+enum AppStatus { signup, forgotpassword, unauthenticated, authenticated }

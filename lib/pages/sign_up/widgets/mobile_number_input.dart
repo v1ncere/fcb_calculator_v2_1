@@ -20,6 +20,7 @@ class MobileNumberInput extends StatelessWidget {
           decoration: InputDecoration(
             border: const OutlineInputBorder(),
             labelText: 'Mobile number',
+            hintText: '+639XXXXXXXXX',
             errorText: state.mobileNumber.displayError?.text()
           )
         );

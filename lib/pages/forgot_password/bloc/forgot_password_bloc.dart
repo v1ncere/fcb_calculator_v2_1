@@ -27,8 +27,6 @@ class ForgotPasswordBloc extends Bloc<ForgotPasswordEvent, ForgotPasswordState> 
       try {
         await _authRepository.requestResetPassword(email: state.email.value);
         emit(state.copyWith(status: FormzSubmissionStatus.success, message: "Password reset email sent. Please check your inbox."));
-      } on RequestResetPasswordFailure catch (e) {
-        emit(state.copyWith(status: FormzSubmissionStatus.failure, message: e.message));
       } catch (e) {
         emit(state.copyWith(status: FormzSubmissionStatus.failure, message: e.toString()));
       }

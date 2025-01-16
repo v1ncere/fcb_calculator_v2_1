@@ -18,12 +18,18 @@ class HomePage extends StatelessWidget {
         RepositoryProvider(create: (context) => _authRepository),
         RepositoryProvider(create: (context) => _databaseRepository)
       ],
-      child: BlocProvider(
-        create: (context) => AppBloc(
-          firebaseAuth: _authRepository, 
-          firebaseDatabase: _databaseRepository
-        )..add(CheckUserExpiration()),
-        child: const HomeView()
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => AppBloc(firebaseAuth: _authRepository, firebaseDatabase: _databaseRepository)
+            ..add(CheckUserExpiration())
+          ),
+          BlocProvider(
+            create: (context) => HomeBloc(firebaseDatabaseRepository: _databaseRepository)
+            ..add(UserLoaded())
+          )
+        ],
+        child: const HomeView(),
       )
     );
   }

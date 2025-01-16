@@ -23,7 +23,8 @@ class PasswordInput extends StatelessWidget {
               icon: Icon(
               state.obscurePassword 
               ? Icons.visibility_outlined
-              : Icons.visibility_off_outlined),
+              : Icons.visibility_off_outlined, 
+              color: Colors.black38),
               onPressed: () => context.read<SignUpBloc>().add(PasswordTextObscured()),
             )
           )

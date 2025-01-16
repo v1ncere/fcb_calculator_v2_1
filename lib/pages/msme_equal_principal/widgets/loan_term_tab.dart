@@ -96,7 +96,7 @@ class _LoanTermState extends State<LoanTermTab> {
                             width: MediaQuery.of(context).size.width,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: CustomColors.jewel,
+                                backgroundColor: CustomColor.jewel,
                                 shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.all(Radius.circular(8))
                                 )

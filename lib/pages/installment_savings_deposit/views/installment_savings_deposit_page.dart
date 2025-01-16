@@ -31,7 +31,7 @@ class _InstallmentSavings extends State<InstallmentSavingsDepositPage> with Tick
             fontWeight: FontWeight.w500
           )
         ),
-        backgroundColor: CustomColors.jewel,
+        backgroundColor: CustomColor.jewel,
         bottom: TabBar(
           labelColor: Colors.white,
           indicatorColor: Colors.white,

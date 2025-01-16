@@ -20,11 +20,11 @@ class CustomStringDropdown extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(left: 8, right: 8),
         decoration: BoxDecoration(
-          color: CustomColors.jewel,
+          color: CustomColor.jewel,
           borderRadius:BorderRadius.circular(5)
         ),
         child:  Theme(
-          data: Theme.of(context).copyWith(canvasColor: CustomColors.jewel),
+          data: Theme.of(context).copyWith(canvasColor: CustomColor.jewel),
           child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
               value: value,

@@ -10,6 +10,8 @@ class Users {
     required this.phoneId,
     required this.mobileNumber,
     required this.expiry,
+    required this.createdAt,
+    required this.updatedAt,
   });
   final String? uid;
   final String? email;
@@ -17,6 +19,8 @@ class Users {
   final String? phoneId;
   final int? mobileNumber;
   final DateTime? expiry;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
 
   Users copyWith({
     String? uid,
@@ -25,6 +29,8 @@ class Users {
     String? phoneId,
     int? mobileNumber,
     DateTime? expiry,
+    DateTime? createdAt,
+    DateTime? updatedAt,
   }) {
     return Users(
       uid: uid ?? this.uid,
@@ -32,7 +38,9 @@ class Users {
       employeeId: employeeId ?? this.employeeId,
       phoneId: phoneId ?? this.phoneId,
       mobileNumber: mobileNumber ?? this.mobileNumber,
-      expiry: expiry ?? this.expiry
+      expiry: expiry ?? this.expiry,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt
     );
   }
 
@@ -42,7 +50,9 @@ class Users {
     employeeId: '',
     phoneId: '',
     mobileNumber: null,
-    expiry: null
+    expiry: null,
+    createdAt: null,
+    updatedAt: null
   );
   bool get isEmpty => this == Users.empty;
   bool get isNotEmpty => this != Users.empty;
@@ -50,6 +60,8 @@ class Users {
   factory Users.fromSnapshot(DataSnapshot dataSnapshot) {
     final data = dataSnapshot.value as Map?;
     final intExpiry = data?['expiry'] as int?;
+    final intCreatedAt = data?['created_at'] as int?;
+    final intUpdatedAt = data?['updated_at'] as int?;
 
     return Users(
       uid: dataSnapshot.key,
@@ -57,7 +69,9 @@ class Users {
       employeeId: data?['employee_id'] as String? ?? '',
       phoneId: data?['phone_id'] as String? ?? '',
       mobileNumber: data?['mobile_number'] as int?,
-      expiry: getMillis(intExpiry) ?? DateTime.now()
+      expiry: getMillis(intExpiry) ?? DateTime.now(),
+      createdAt: getMillis(intCreatedAt) ?? DateTime.now(),
+      updatedAt: getMillis(intUpdatedAt) ?? DateTime.now()
     );
   }
 
@@ -68,6 +82,8 @@ class Users {
     data['phone_id'] = phoneId;
     data['mobile_number'] = mobileNumber;
     data['expiry'] = expiry?.millisecondsSinceEpoch;
+    data['created_at'] = createdAt?.millisecondsSinceEpoch;
+    data['updated_at'] = updatedAt?.millisecondsSinceEpoch;
     return data;
   }
 }

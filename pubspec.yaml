@@ -1,5 +1,5 @@
 name: fcb_calculator_v2_1
-description: "FCB loan mobile calculator."
+description: "FCB loan e mobile calculator."
 publish_to: 'none'
 version: 2.1.0+1
 environment:
@@ -23,8 +23,6 @@ dependencies:
   flow_builder: ^0.0.10
   equatable: ^2.0.5
   formz: ^0.6.1
-  hive_flutter: ^1.1.0
-  http: ^1.1.2
   google_sign_in: ^6.2.1
   google_fonts: ^6.1.0
   font_awesome_flutter: ^10.6.0

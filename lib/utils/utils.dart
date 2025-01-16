@@ -1,7 +1,7 @@
 export 'build_material_color.dart';
 export 'cipher.dart';
 export 'currency_format.dart';
-export 'custom_colors.dart';
+export 'custom_color.dart';
 export 'custom_int_dropdown.dart';
 export 'custom_snackbar.dart';
 export 'custom_string_dropdown.dart';

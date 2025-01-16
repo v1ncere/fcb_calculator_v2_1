@@ -23,9 +23,9 @@ class ForgotPasswordView extends StatelessWidget {
             fontSize: 16
           )
         ),
-        backgroundColor: CustomColors.lime,
+        backgroundColor: CustomColor.lime,
       ),
-      backgroundColor: CustomColors.lime,
+      backgroundColor: CustomColor.lime,
       body: BlocListener<ForgotPasswordBloc, ForgotPasswordState>(
         listener: (context, state) {
           if (state.status.isFailure) {
@@ -34,6 +34,7 @@ class ForgotPasswordView extends StatelessWidget {
             ..showSnackBar(customSnackBar(
               state.message,
               FontAwesomeIcons.triangleExclamation,
+              Colors.white,
               Colors.red,
             ));
           }
@@ -43,6 +44,7 @@ class ForgotPasswordView extends StatelessWidget {
             ..showSnackBar(customSnackBar(
               state.message,
               FontAwesomeIcons.circleCheck,
+              Colors.white,
               Colors.green,
             ));
             context.flow<AppStatus>().update((state) => AppStatus.unauthenticated);
@@ -60,7 +62,7 @@ class ForgotPasswordView extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Card(
                         elevation: 5,
-                        color: CustomColors.jewel,
+                        color: CustomColor.jewel,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
                         child: const Padding(
                           padding: EdgeInsets.fromLTRB(16, 16, 16, 16),

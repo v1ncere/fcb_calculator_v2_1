@@ -13,7 +13,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.lime,
+      backgroundColor: CustomColor.lime,
       body: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state.status.isFailure) {
@@ -22,6 +22,7 @@ class LoginView extends StatelessWidget {
             ..showSnackBar(customSnackBar(
               state.message,
               FontAwesomeIcons.triangleExclamation,
+              Colors.white,
               Colors.red,
             ));
           }
@@ -45,7 +46,7 @@ class LoginView extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: Card(
                             elevation: 5,
-                            color: CustomColors.jewel,
+                            color: CustomColor.jewel,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25)
                             ),
@@ -64,6 +65,13 @@ class LoginView extends StatelessWidget {
                                       children: [
                                         const Text("FCB", style: TextStyle(
                                           color:Colors.white,
+                                          fontFamily: 'San-Serif',
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 30
+                                        )),
+                                        const SizedBox(width: 5),
+                                        const Text("e", style: TextStyle(
+                                          color: Colors.lightBlue,
                                           fontFamily: 'San-Serif',
                                           fontWeight: FontWeight.bold,
                                           fontSize: 30

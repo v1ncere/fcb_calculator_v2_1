@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-SnackBar customSnackBar(String input, IconData icon, Color color) {
+SnackBar customSnackBar(String input, IconData icon, Color color, Color bgColor) {
   return SnackBar(
     elevation: 0,
+    backgroundColor: bgColor,
     duration: const Duration(milliseconds: 5000),
     content: Row(
       mainAxisAlignment: MainAxisAlignment.start,

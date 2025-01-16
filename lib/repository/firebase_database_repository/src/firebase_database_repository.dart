@@ -9,14 +9,13 @@ class FirebaseDatabaseRepository {
   }) : _firebaseDatabase = firebaseDatabase ?? FirebaseDatabase.instance;
   final FirebaseDatabase _firebaseDatabase;
   
-  // user id
   String userID() => FirebaseAuth.instance.currentUser!.uid;
 
   Future<void> addUsers(String uid, Users users) async {
     try {
       await _firebaseDatabase.ref('users/$uid').set(users.toJson());
-    } catch (err) {
-      throw Exception(err);
+    } catch (e) {
+      throw Exception(e);
     }
   }
 
@@ -26,10 +25,10 @@ class FirebaseDatabaseRepository {
       if (snapshot.exists) {
         return Users.fromSnapshot(snapshot);
       } else {
-        throw Exception('Something went wrong.');
+        throw Exception('User not found.');
       }
-    } catch (err) {
-      throw Exception(err);
+    } catch (e) {
+      throw Exception(e);
     }
   }
 }

@@ -23,7 +23,8 @@ class SignUpInformationView extends StatelessWidget {
           ..showSnackBar(customSnackBar(
             "Registration account successful! We've sent a verification link to your email.",
             FontAwesomeIcons.solidCircleCheck,
-            Colors.white
+            Colors.white,
+            Colors.teal
           ));
         }
         if(state.status.isFailure) {
@@ -32,6 +33,7 @@ class SignUpInformationView extends StatelessWidget {
           ..showSnackBar(customSnackBar(
             state.message,
             FontAwesomeIcons.triangleExclamation,
+            Colors.white,
             Colors.red
           ));
         }

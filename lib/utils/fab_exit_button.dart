@@ -1,12 +1,12 @@
 
 import 'package:flutter/material.dart';
 
-import 'custom_colors.dart';
+import 'custom_color.dart';
 
 Widget fabExitButton(BuildContext context) {
   return FloatingActionButton(
     foregroundColor: Colors.black45,
-    backgroundColor: CustomColors.gold,
+    backgroundColor: CustomColor.gold,
     child: const Icon(
       Icons.close_sharp,
       size: 30

@@ -21,11 +21,11 @@ class CustomIntDropdown extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.only(left: 10.0, right: 10.0),
         decoration: BoxDecoration(
-          color: CustomColors.jewel,
+          color: CustomColor.jewel,
           borderRadius: BorderRadius.circular(5)
         ),
         child: Theme(
-          data: Theme.of(context).copyWith(canvasColor: CustomColors.jewel),
+          data: Theme.of(context).copyWith(canvasColor: CustomColor.jewel),
           child: DropdownButtonHideUnderline(
             child: DropdownButton<int>(
               icon: const Icon(Icons.arrow_drop_down, color: Colors.white70),

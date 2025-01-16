@@ -18,6 +18,7 @@ class EmailInput extends StatelessWidget {
           decoration: InputDecoration(
             border: const OutlineInputBorder(),
             labelText: 'Email',
+            hintText: 'example@gmail.com',
             errorText: state.email.displayError?.text()
           )
         );

@@ -8,6 +8,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:1014842847604:android:e4577efe36df8677377c21",
+        "android_client_info": {
+          "package_name": "com.example.calculator_admin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT_a91AbQFNU7OYLhBBsMOUDAGNA5Bvcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:1014842847604:android:183c82e4db27dcdd377c21",
         "android_client_info": {
           "package_name": "com.example.fcb_calculator_v2_1"

@@ -32,8 +32,8 @@ class RequestButton extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              foregroundColor: CustomColors.deepSea,
-              backgroundColor: CustomColors.turbo,
+              foregroundColor: CustomColor.deepSea,
+              backgroundColor: CustomColor.turbo,
               shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
               textStyle: const TextStyle(
                 fontWeight: FontWeight.bold,

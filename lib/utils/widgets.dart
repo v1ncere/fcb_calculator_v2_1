@@ -9,7 +9,7 @@ Widget customHomeButton(BuildContext context, String text, void Function()? onPr
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.all(10),
-        backgroundColor: CustomColors.jewel,
+        backgroundColor: CustomColor.jewel,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10))
         )
@@ -21,13 +21,13 @@ Widget customHomeButton(BuildContext context, String text, void Function()? onPr
             child: Text(
               text, 
               style: TextStyle(
-                color: CustomColors.mystic
+                color: CustomColor.mystic
               )
             )
           ),
           Icon(
             Icons.arrow_right_rounded,
-            color: CustomColors.mystic,
+            color: CustomColor.mystic,
           )
         ]
       ),

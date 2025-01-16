@@ -17,10 +17,10 @@ class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
   @override
-  State<HomeView> createState() => HomeState();
+  State<HomeView> createState() => HomeViewState();
 }
 
-class HomeState extends State<HomeView> with WidgetsBindingObserver {
+class HomeViewState extends State<HomeView> with WidgetsBindingObserver {
   Timer? expirationTimer;
 
   @override
@@ -41,18 +41,17 @@ class HomeState extends State<HomeView> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: const TitleTexts(),
+          centerTitle: false,
+        ),
         drawer: const SideDrawer(),
         body: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            /// TITLE
-            const Positioned(
-              top: 20,
-              child: TitleTexts()
-            ),
             /// BACKGROUND LAYOUT
             Positioned(
-              top: 80,
+              top: 10,
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
@@ -63,7 +62,7 @@ class HomeState extends State<HomeView> with WidgetsBindingObserver {
               )
             ),
             /// TOP BACKGROUND IMAGE
-            backgroundImage(null, 110.0, 20.0, null, 150.0, 150.0, 15.0 / 360.0),
+            backgroundImage(null, 100.0, 20.0, null, 150.0, 150.0, 15.0 / 360.0),
             /// BOTTOM BACKGROUND IMAGE
             backgroundImage(50.0, null, null, 10.0, 250.0, 250.0, 15.0 / 360.0),
             /// BUTTONS
@@ -75,7 +74,7 @@ class HomeState extends State<HomeView> with WidgetsBindingObserver {
                     child: Column(
                       children: [
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 115, 10, 35),
+                        padding: const EdgeInsets.only(top: 40, right: 20, left: 20),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -138,8 +137,7 @@ class HomeState extends State<HomeView> with WidgetsBindingObserver {
                   )
                 );
               }
-            ),
-            // FooterText(expiration: _expirationDate)
+            )
           ]
         )
       )

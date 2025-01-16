@@ -13,7 +13,8 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc({
     required FirebaseAuthRepository firebaseAuth,
     required FirebaseDatabaseRepository firebaseDatabase,
-  })  : _firebaseAuthRepository = firebaseAuth, _databaseRepository = firebaseDatabase,
+  })  : _firebaseAuthRepository = firebaseAuth,
+  _databaseRepository = firebaseDatabase,
   super(
     firebaseAuth.currentUser.isNotEmpty
     ? AppState(status: AppStatus.authenticated, user: firebaseAuth.currentUser)
@@ -22,13 +23,13 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<AppUserChanged>(_onAppUserChanged);
     on<AppLogoutRequested>(_onAppLogoutRequested);
     on<CheckUserExpiration>(_onCheckUserExpiration);
+
     _streamSubscription = _firebaseAuthRepository.user.listen((user) => add(AppUserChanged(user)));
   }
   final FirebaseAuthRepository _firebaseAuthRepository;
   final FirebaseDatabaseRepository _databaseRepository;
   late final StreamSubscription<User> _streamSubscription;
 
-  // app user changed
   void _onAppUserChanged(AppUserChanged event, Emitter<AppState> emit) async {
     try {
       if (_isUserValid(event.user)) {
@@ -46,7 +47,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     }
   }
 
-  // expiry checker
   void _onCheckUserExpiration(CheckUserExpiration event, Emitter<AppState> emit) async {
     try {
       final user = _firebaseAuthRepository.currentUser;
@@ -61,7 +61,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     }
   }
 
-  // logout
   void _onAppLogoutRequested(AppLogoutRequested event, Emitter<AppState> emit) {
     unawaited(_firebaseAuthRepository.logOut());
   }

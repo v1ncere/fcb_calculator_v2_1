@@ -89,7 +89,7 @@ class LoanAmountState extends State<LoanAmountTab> {
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.white,
-                                backgroundColor: CustomColors.jewel,
+                                backgroundColor: CustomColor.jewel,
                                 shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.all(Radius.circular(8))
                                 )

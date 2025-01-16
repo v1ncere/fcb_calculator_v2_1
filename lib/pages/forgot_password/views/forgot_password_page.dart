@@ -6,7 +6,6 @@ import 'package:fcb_calculator_v2_1/repository/repository.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});
-  
   static Page<void> page() => const MaterialPage<void>(child: ForgotPasswordPage());
   static final FirebaseAuthRepository _authRepository = FirebaseAuthRepository();
 

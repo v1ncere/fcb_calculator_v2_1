@@ -9,7 +9,7 @@ class ForgotPasswordButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () => context.flow<AppStatus>().update((state) => AppStatus.forgotPassword),
+      onPressed: () => context.flow<AppStatus>().update((state) => AppStatus.forgotpassword),
       style: ButtonStyle(
         foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
         overlayColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {

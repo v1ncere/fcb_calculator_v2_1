@@ -103,7 +103,7 @@ class _TotalOfPrincipalAndInterestTabState extends State<TotalOfPrincipalAndInte
                             padding: const EdgeInsets.all(3),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: CustomColors.jewel,
+                                backgroundColor: CustomColor.jewel,
                                 shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.all(Radius.circular(8))
                                 )

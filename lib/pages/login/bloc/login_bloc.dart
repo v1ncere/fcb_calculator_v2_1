@@ -51,16 +51,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           ));
         } else if (credential != null && !_isUserNotExpired(await _getCurrentUser(credential.user!.uid))) {
           emit(state.copyWith(
-              status: FormzSubmissionStatus.failure,
-              message: 'Access Limit Reached. Contact Admin for Renewal.',
+            status: FormzSubmissionStatus.failure,
+            message: 'Access Limit Reached. Contact Admin for Renewal.',
           ));
         } else {
           emit(state.copyWith(status: FormzSubmissionStatus.success));
         }
-      } on LogInWithEmailAndPasswordFailure catch (e) {
-        emit(state.copyWith(status: FormzSubmissionStatus.failure, message: e.message));
       } catch (e) {
-        emit(state.copyWith(status: FormzSubmissionStatus.failure, message: e.toString()));
+        emit(state.copyWith(
+          status: FormzSubmissionStatus.failure,
+          message: "Error: ${e.toString().replaceAll("Exception: ", "")}"
+        ));
       }
     } else {
       emit(state.copyWith(
